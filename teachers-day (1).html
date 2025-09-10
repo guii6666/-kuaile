@@ -1,0 +1,281 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教师节快乐</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E67E22',
+                        secondary: '#3498DB',
+                        accent: '#9B59B6',
+                        warm: '#F39C12',
+                        neutral: '#ECF0F1'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-10px);
+            }
+            .animate-float {
+                animation: float 3s ease-in-out infinite;
+            }
+            .animate-pulse-slow {
+                animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-15px); }
+                100% { transform: translateY(0px); }
+            }
+        }
+    </style>
+    
+    <!-- 引入中文字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;family=Noto+Serif+SC:wght@400;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen">
+    <!-- 可爱装饰元素 -->
+    <div class="fixed top-10 right-10 text-accent/30 text-4xl hidden md:block z-0">
+        <i class="fa fa-gift animate-float"></i>
+    </div>
+    <div class="fixed bottom-20 left-8 text-warm/30 text-5xl hidden md:block z-0">
+        <i class="fa fa-heart animate-float" style="animation-delay: 0.8s"></i>
+    </div>
+    <div class="fixed top-1/3 left-5 text-primary/20 text-4xl hidden lg:block z-0">
+        <i class="fa fa-star animate-float" style="animation-delay: 0.3s"></i>
+    </div>
+
+    <!-- 页面加载动画 -->
+    <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50 transition-opacity duration-1000">
+        <div class="text-center">
+            <div class="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p class="text-primary font-serif text-xl">准备中...</p>
+        </div>
+    </div>
+
+    <!-- 主内容 -->
+    <div class="container mx-auto px-4 py-12 opacity-0 transition-opacity duration-1000 relative z-10" id="content">
+        <!-- 标题区域 -->
+        <header class="text-center mb-16 mt-8">
+            <div class="relative inline-block">
+                <i class="fa fa-star text-warm text-2xl absolute -top-6 -left-6 animate-float"></i>
+                <i class="fa fa-heart text-primary text-xl absolute -bottom-4 -right-4 animate-float" style="animation-delay: 0.5s"></i>
+                <h1 class="text-[clamp(2.2rem,6vw,4rem)] font-serif font-bold text-gray-800 mb-6 text-shadow">
+                    教师节快乐
+                </h1>
+                <p class="text-gray-600 text-xl md:text-2xl italic">师恩似海，感恩有您</p>
+            </div>
+            <div class="mt-8 flex justify-center">
+                <div class="h-1 w-32 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+            </div>
+        </header>
+
+        <!-- 装饰性分隔元素 -->
+        <div class="flex justify-center my-6">
+            <div class="flex items-center gap-4">
+                <div class="h-px w-16 bg-gray-300"></div>
+                <i class="fa fa-pagelines text-green-500 text-xl"></i>
+                <div class="h-px w-16 bg-gray-300"></div>
+            </div>
+        </div>
+
+        <!-- 贺卡区域 -->
+        <div class="max-w-3xl mx-auto mb-20">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:shadow-2xl">
+                <div class="relative h-56 md:h-72 bg-gradient-to-r from-primary to-warm overflow-hidden">
+                    <div class="absolute inset-0 opacity-20">
+                        <i class="fa fa-book text-white text-6xl absolute top-4 left-4 transform rotate-[-10deg]"></i>
+                        <i class="fa fa-pencil text-white text-5xl absolute top-10 right-10 transform rotate-[5deg]"></i>
+                        <i class="fa fa-graduation-cap text-white text-6xl absolute bottom-4 left-1/3 transform rotate-[10deg]"></i>
+                        <i class="fa fa-lightbulb-o text-white text-5xl absolute bottom-8 right-20 transform rotate-[-5deg]"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <p class="text-xl md:text-2xl font-medium">致我敬爱的敏敏老师</p>
+                    </div>
+                </div>
+                
+                <div class="p-8 md:p-10">
+                    <div class="prose max-w-none text-gray-700 leading-relaxed">
+                        <p class="text-xl mb-6">亲爱的敏敏老师：</p>
+                        <p class="text-lg mb-6">不知不觉高中毕业已四个年头，都已经从大学毕业了，觉得多年后还能保持着联系而感到开心。</p>
+                        <!-- 插入合影图片，替换src为实际图片地址 -->
+                        <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/rc/pc/code_assistant/b4a34ab3b5f44a02ba9cb3e95397360c~tplv-a9rns2rl98-image.image?rcl=202509101722174BA5CC85DD97D82B13E8&amp;rk3s=8e244e95&amp;rrcfp=e75484ac&amp;x-expires=1758100942&amp;x-signature=7VvwKh9pFnj6NWtkAB2x5IfSiAM%3D" alt="和敏敏老师的合影" class="w-full h-auto rounded-lg my-8 shadow-md">
+                        <p class="text-lg">再次祝福俺滴好老师教师节快乐，永远平安，幸福。</p>
+                    </div>
+                    
+                    <div class="mt-10 text-right">
+                        <p class="text-gray-600 italic text-lg">您的学生</p>
+                        <p class="text-gray-800 font-medium mt-2 text-xl" id="signature">桂明宇</p>
+                        <p class="text-gray-500 text-base mt-2">2025年9月10日</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 祝福卡片区域 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <div class="text-primary text-4xl mb-6 flex justify-center">
+                    <i class="fa fa-globe"></i>
+                </div>
+                <p class="text-gray-700 italic mb-6 text-center text-lg">愿烦恼无限小</p>
+                <p class="text-center text-gray-600 font-medium">人气节节高</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <div class="text-secondary text-4xl mb-6 flex justify-center">
+                    <i class="fa fa-leaf"></i>
+                </div>
+                <p class="text-gray-700 italic mb-6 text-center text-lg">喜至庆来</p>
+                <p class="text-center text-gray-600 font-medium">永永其祥</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6 md:p-8 card-hover">
+                <div class="text-accent text-4xl mb-6 flex justify-center">
+                    <i class="fa fa-heart"></i>
+                </div>
+                <p class="text-gray-700 italic mb-6 text-center text-lg">红颜永驻</p>
+                <p class="text-center text-gray-600 font-medium">青春常在</p>
+            </div>
+        </div>
+
+        <!-- 装饰性小元素 -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <div class="bg-white px-4 py-3 rounded-full shadow-md flex items-center gap-2">
+                <i class="fa fa-star text-warm"></i>
+                <span class="text-gray-700">桃李满天下</span>
+            </div>
+            <div class="bg-white px-4 py-3 rounded-full shadow-md flex items-center gap-2">
+                <i class="fa fa-heart text-accent"></i>
+                <span class="text-gray-700">师恩永难忘</span>
+            </div>
+            <div class="bg-white px-4 py-3 rounded-full shadow-md flex items-center gap-2">
+                <i class="fa fa-book text-secondary"></i>
+                <span class="text-gray-700">教诲如春风</span>
+            </div>
+            <div class="bg-white px-4 py-3 rounded-full shadow-md flex items-center gap-2">
+                <i class="fa fa-lightbulb-o text-primary"></i>
+                <span class="text-gray-700">师恩似深海</span>
+            </div>
+        </div>
+
+        <!-- 互动区域 - 签名 -->
+        <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 mb-16">
+            <h2 class="text-2xl md:text-3xl font-serif text-center mb-6 text-gray-800">留下你的名字</h2>
+            <div class="flex flex-col md:flex-row gap-4">
+                <input type="text" id="nameInput" placeholder="请输入你的名字" class="flex-1 px-5 py-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all text-lg">
+                <button id="signBtn" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg transition-all font-medium flex items-center justify-center text-lg">
+                    <i class="fa fa-pencil mr-2"></i> 签名
+                </button>
+            </div>
+        </div>
+
+        <!-- 底部区域 -->
+        <footer class="text-center text-gray-500 py-8">
+            <div class="flex justify-center gap-6 mb-4">
+                <i class="fa fa-star text-warm text-xl animate-pulse-slow"></i>
+                <i class="fa fa-heart text-accent text-xl animate-pulse-slow" style="animation-delay: 0.5s"></i>
+                <i class="fa fa-book text-secondary text-xl animate-pulse-slow" style="animation-delay: 1s"></i>
+            </div>
+            <p class="text-base">用❤️制作的教师节祝福 | <a href="#" class="text-primary hover:underline">分享此页面</a></p>
+            <p class="mt-2 text-sm">
+</p>
+        </footer>
+    </div>
+
+    <script>
+        // 页面加载动画
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('opacity-0');
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none';
+                    document.getElementById('content').classList.remove('opacity-0');
+                }, 1000);
+            }, 800);
+        });
+
+        // 签名功能
+        document.getElementById('signBtn').addEventListener('click', function() {
+            const name = document.getElementById('nameInput').value.trim();
+            if (name) {
+                document.getElementById('signature').textContent = name;
+                
+                // 添加签名成功的动画效果
+                const signatureElement = document.getElementById('signature');
+                signatureElement.classList.add('text-primary');
+                signatureElement.classList.add('font-bold');
+                
+                // 显示成功提示
+                const toast = document.createElement('div');
+                toast.className = 'fixed bottom-6 right-6 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-500';
+                toast.textContent = '签名成功！';
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-20', 'opacity-0');
+                }, 100);
+                
+                setTimeout(() => {
+                    toast.classList.add('translate-y-20', 'opacity-0');
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 500);
+                }, 2000);
+            }
+        });
+
+        // 支持按Enter键签名
+        document.getElementById('nameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('signBtn').click();
+            }
+        });
+
+        // 页面滚动时的动画效果
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        // 对所有卡片应用观察器
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-700');
+            observer.observe(card);
+        });
+    </script>
+
+
+    </body></html>
